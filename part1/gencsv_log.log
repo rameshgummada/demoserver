@@ -1,0 +1,4 @@
+Usage: ./gencsv.sh<st_index> <end_index>
+CSV file 'inputFile' generated successfully.
+st_index should be less than or equal to end_index.
+CSV file 'inputFile' generated successfully.
