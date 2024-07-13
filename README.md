@@ -43,7 +43,7 @@ or build your own container image at all.
   1. Run the container image `demoserver:1.0` in background and check if it's running.
   2. If it's failing then try to find the reason, once you find the reason, move to the next step.
   3. Write a bash script `gencsv.sh` to generate a file named `inputFile` whose content looks like:
-     ```csv
+     ```csi
      0, 234
      1, 98
      2, 34
@@ -112,11 +112,14 @@ to pass environment variables used in part I.
 ## Part III
   0. Keep the last part.
   1. Add Prometheus pod (`prom/prometheus:latest`) to the  form part II.
-  2. Configure Prometheus to collect data from our application at `<application>:<port>/metrics` endpoint. (Where the `<port>` is the port from I.5) (HINT: Think of CONFIGMAP )
-  3. Make sure that Prometheus is accessible using appropriate kuberetes servcice type. (HINT: Think of port-forward)
+  2. Configure Prometheus to collect data from our application at `<application>:<port>/metrics` endpoint.
+ (Where the `<port>` is the port from I.5) (HINT: Think of CONFIGMAP )
+  3. Make sure that Prometheus is accessible using appropriate kuberetes servcice type.
+ (HINT: Think of port-forward)
   4. Type `csvserver_records` in the query box of Prometheus. Click on Execute and then switch to the Graph tab.
 
-The Prometheus instance should be accessible  and it should show a straight line graph with value 7 (consider shrinking the time range to 5m).
+The Prometheus instance should be accessible  and it should show a straight line graph with value 7 
+(consider shrinking the time range to 5m).
 
 ### Save the solution
   - Create a directory called Part III
