@@ -140,6 +140,8 @@ The Prometheus instance should be accessible  and it should show a straight line
 #Part2 deployment_ramesh.yml file is minikube  ( service.yml file here only)
 #Part3 prometheus.yml
 
+Notes: Dockerfile is expecting inputdata but in assignment mentioned inputFile. copied inputFile to inputdata.  we can add same step in gencsv.sh file also. I updated on gencsv1.sh
+
 #Minikube execute 
 minikube delete
 docker system prune -a
