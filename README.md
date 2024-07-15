@@ -1,3 +1,4 @@
+
 # The csvserver assignment
 
 The developer team of the csvserver was working hard to get it ready for production. 
@@ -133,4 +134,19 @@ The Prometheus instance should be accessible  and it should show a straight line
   2020/10/29 13:22:56 error while reading the file "/****/****": open /****/****: permission denied
 
   ``
-  
+
+#git clone
+#Part1 - Unix, logs files and docker file
+#Part2 deployment_ramesh.yml file is minikube  ( service.yml file here only)
+#Part3 prometheus.yml
+
+#Minikube execute 
+minikube delete
+docker system prune -a
+minikube start --mount --mount-string="/Users/ramesh/Desktop/temp1:/mnt/data"
+
+minikube status
+
+minikube ssh
+cd /mnt/data
+chmod 777 inputdata
