@@ -20,6 +20,25 @@ minikube ssh
 cd /mnt/data
 chmod 777 inputdata
 
+docker build -t rameshgummada/demoserver:1.0 .
+docker push rameshgummada/demoserver:1.0
+
+Port forward:  prometheus
+kubectl port-forward service/prometheus-service 9090:9090
+Service
+kubectl port-forward service/csvserver-service 9393:9300 
+
+#Another commands used as part of this assignment
+minikube status (check the status and start if it is not started .. minikube start)
+minikube dashboard
+
+kubectl get pods  
+kubectl apply -f deployment.yml 
+kubectl apply -f prometheus.yml
+kubectl logs csvserver-deployment-7456b6bc65-x2zcx  ( Logs checking on that pod)
+kubectl exec -it csvserver-deployment-7456b6bc65-x2zcx  -- /bin/bash  ( go the pod and check the files)
+
+
 # The csvserver assignment
 
 The developer team of the csvserver was working hard to get it ready for production. 
