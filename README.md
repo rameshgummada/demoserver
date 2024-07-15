@@ -135,7 +135,9 @@ The Prometheus instance should be accessible  and it should show a straight line
 
   ``
 
-## Solution and Notes
+
+
+## Notes
 #git clone
 #Part1 - Unix, logs files and docker file
 #Part2 deployment_ramesh.yml file is minikube  ( service.yml file here only)
