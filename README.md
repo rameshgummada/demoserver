@@ -137,21 +137,3 @@ The Prometheus instance should be accessible  and it should show a straight line
 
 
 
-## Notes
-#git clone
-#Part1 - Unix, logs files and docker file
-#Part2 deployment_ramesh.yml file is minikube  ( service.yml file here only)
-#Part3 prometheus.yml
-
-Notes: Dockerfile is expecting inputdata but in assignment mentioned inputFile. copied inputFile to inputdata.  we can add same step in gencsv.sh file also. I updated on gencsv1.sh
-
-#Minikube execute 
-minikube delete
-docker system prune -a
-minikube start --mount --mount-string="/Users/ramesh/Desktop/temp1:/mnt/data"
-
-minikube status
-
-minikube ssh
-cd /mnt/data
-chmod 777 inputdata
