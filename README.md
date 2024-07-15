@@ -12,7 +12,7 @@ Notes: Dockerfile is expecting inputdata but in assignment mentioned inputFile. 
 #Minikube execute 
 minikube delete
 docker system prune -a
-minikube start --mount --mount-string="/Users/ramesh/Desktop/temp1:/mnt/data"
+minikube start --mount --mount-string="/Users/ramesh/Desktop/temp1:/mnt/data"    (please give smae path on deployment_ramesh.yml file)
 
 minikube status
 
