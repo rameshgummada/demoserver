@@ -1,0 +1,87 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: csvserver-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: csvserver
+  template:
+    metadata:
+      labels:
+        app: csvserver
+    spec:
+      containers:
+        - name: csvserver
+          image: rameshgummada/demoserver:2.0
+          ports:
+            - containerPort: 9300
+          env:
+            - name: CSVSERVER_BORDER
+              value: "Orange"
+          volumeMounts:
+            - name: csvserver-inputdata
+              mountPath: /csvserver
+      volumes:
+        - name: csvserver-inputdata
+          hostPath:
+            path: /Users/rameshg/Downloads/csvserver/demoserver 
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: csvserver-service
+spec:
+  type: NodePort
+  ports:
+    - port: 9300
+      targetPort: 9300
+      nodePort: 30993
+  selector:
+    app: csvserver
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prometheus
+  template:
+    metadata:
+      labels:
+        app: prometheus
+    spec:
+      containers:
+        - name: prometheus
+          image: prom/prometheus:latest
+          ports:
+            - containerPort: 9090
+          volumeMounts:
+            - name: prometheus-config
+              mountPath: /etc/prometheus/prometheus.yml
+              subPath: prometheus.yml
+      volumes:
+        - name: prometheus-config
+          configMap:
+            name: prometheus-configmap
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: prometheus-service
+spec:
+  type: NodePort
+  ports:
+    - port: 9090
+      targetPort: 9090
+      nodePort: 30990
+  selector:
+    app: prometheus
